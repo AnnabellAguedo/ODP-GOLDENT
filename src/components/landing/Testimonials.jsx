@@ -1,72 +1,77 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Star, User } from 'lucide-react';
+import { Star } from 'lucide-react';
 
-const testimonialsData = [
+const testimonials = [
   {
-    name: "Mamá de Luciana",
-    text: "Mi hijo salió feliz de su cita. ¡Y yo más tranquila que nunca!",
-    rating: 5
+    video: '/testimonio-mama-luciana.mp4',
+    quote: 'Mi hija salió feliz de su cita. ¡Y nosotros nos sentimos más tranquilos!',
+    author: 'Papá de Shantall',
+    description: 'Nos sentimos muy bien atendidos y seguros durante toda la consulta. Tienen mucha paciencia para explicarte y resolver dudas, la atención fue excelente.'
   },
   {
-    name: "Papá de Mateo",
-    text: "Desde que lo llevé a Goldent, ya no teme al dentista. ¡Hasta quiere volver!",
-    rating: 5
+    video: '/testimonio-anquiloglosia.mp4',
+    quote: 'Me ahorré tener que irme hasta la ciudad de Lima para poder hacerle el tratamiento a mi niño.',
+    author: 'Mamá de Gean Carlo',
+    description: 'Aquí encontramos una solución oportuna y profesional sin necesidad de viajar. La operación fue un éxito y estamos muy agradecidos.'
   },
   {
-    name: "Mamá de Camila",
-    text: "Ver a mi hija confiando en la doctora desde el primer minuto no tiene precio.",
-    rating: 5
-  }
+    video: '/testimonio-sergio.mp4',
+    quote: 'Estoy muy contenta por la atención, la empatía y la paciencia que tienen. ¡Gracias!',
+    author: 'Mamá de Mathias',
+    description: 'Mi hijo tenía miedo, pero lo trataron con tanto amor que salió feliz. Agradezco mucho al equipo por su dedicación.'
+  },
 ];
 
-const Testimonials = ({ onTestimonialClick }) => {
+const Testimonials = () => {
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true, amount: 0.5 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl font-bold text-brand-dark mb-4">
-            Padres Tranquilos, Hijos Felices
-          </h2>
-          <p className="text-xl text-brand-gray max-w-3xl mx-auto">
-            Testimonios reales de familias que confían en la experiencia Goldent.
-          </p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonialsData.map((testimonial, index) => (
+    <section id="testimonios" className="py-20 bg-white">
+      <div className="container mx-auto px-4 space-y-16">
+        {testimonials.map((item, index) => (
+          <div key={index} className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* VIDEO */}
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
               viewport={{ once: true, amount: 0.5 }}
-              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 flex flex-col"
-              onClick={onTestimonialClick}
             >
-              <div className="flex items-center mb-4">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+              <video
+                autoPlay={index === 0}
+                muted={index !== 0}
+                loop={index === 0}
+                controls
+                playsInline
+                className="rounded-3xl shadow-2xl w-full h-auto"
+              >
+                <source src={item.video} type="video/mp4" />
+                Tu navegador no soporta el video.
+              </video>
+            </motion.div>
+
+            {/* TEXTO */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true, amount: 0.5 }}
+              className="space-y-6"
+            >
+              <div className="flex items-center">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-6 h-6 text-yellow-400 fill-current" />
                 ))}
               </div>
-              <p className="text-brand-gray mb-6 italic flex-grow">"{testimonial.text}"</p>
-              <div className="flex items-center space-x-3 pt-4 border-t">
-                <div className="w-12 h-12 bg-gradient-to-br from-gold to-amber-400 rounded-full flex items-center justify-center text-white">
-                  <User className="w-6 h-6" />
-                </div>
-                <div>
-                  <div className="font-bold text-brand-dark">{testimonial.name}</div>
-                </div>
-              </div>
+              <h3 className="text-2xl font-bold text-brand-dark">
+                "{item.quote}"
+              </h3>
+              <p className="text-lg text-brand-gray">
+                {item.description}
+              </p>
+              <p className="font-bold text-md text-brand-dark">- {item.author}</p>
             </motion.div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </section>
   );

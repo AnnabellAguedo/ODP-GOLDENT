@@ -1,27 +1,30 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Play } from 'lucide-react';
 
 const steps = [
   {
-    title: "Bienvenida Amigable",
-    description: "Recibimos a tu hijo en un ambiente relajado y divertido para que se sienta cómodo desde el inicio."
+    title: "Bienvenida y Triaje",
+    description:
+      "Recibimos a tu hijo con una gran sonrisa, lo hacemos sentir seguro desde el primer momento y realizamos un breve triaje para conocerlo mejor.",
+  },
+  {
+    title: "Apertura de Historia y Radiografía",
+    description:
+      "Para niños desde los 6 años tomamos una radiografía panorámica, abriendo su historia clínica con todo el cuidado y paciencia que merecen.",
   },
   {
     title: "Revisión Interactiva",
-    description: "Usamos cámaras y espejos para que el niño vea sus propios dientes, convirtiendo la revisión en un juego."
+    description:
+      "Convertimos la consulta en un juego: usamos espejos, cámaras y peluches para que tu hijo explore y aprenda sobre sus dientes divirtiéndose.",
   },
   {
-    title: "Tratamiento sin Miedo",
-    description: "Explicamos cada paso con palabras sencillas y técnicas de distracción para una experiencia positiva."
+    title: "¡La Maleta de Premios!",
+    description:
+      "Al terminar, cada niño elige un premio mágico como reconocimiento por su valentía y cooperación. ¡Siempre se van felices!",
   },
-  {
-    title: "¡El Premio Final!",
-    description: "Al terminar, cada niño valiente elige un premio de nuestra maleta mágica como recompensa."
-  }
 ];
 
-const StepByStep = ({ onVideoClick }) => {
+const StepByStep = () => {
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
@@ -39,28 +42,35 @@ const StepByStep = ({ onVideoClick }) => {
             Un proceso diseñado paso a paso para garantizar la comodidad y confianza de tu hijo.
           </p>
         </motion.div>
+
         <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* VIDEO EN FORMATO VERTICAL */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true, amount: 0.5 }}
-            className="relative rounded-3xl overflow-hidden shadow-2xl cursor-pointer group"
-            onClick={() => onVideoClick("https://www.youtube.com/watch?v=dQw4w9WgXcQ")}
+            className="flex justify-center items-center rounded-3xl shadow-2xl bg-black p-4"
           >
-            <img  alt="Video del paso a paso de una consulta dental infantil" className="w-full h-[500px] object-cover group-hover:scale-105 transition-transform duration-300" src="https://images.unsplash.com/photo-1674775372047-27fb6492c9a2" />
-            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
-              <div className="w-24 h-24 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-xl">
-                <Play className="w-12 h-12 text-gold-dark ml-1" fill="currentColor" />
-              </div>
+            <div className="w-full max-w-[380px] aspect-[9/16] rounded-2xl overflow-hidden shadow-xl">
+              <video
+                src="/visita-goldent.mp4"
+                className="w-full h-full object-contain"
+                controls
+                autoPlay
+                muted={false}
+                playsInline
+              />
             </div>
           </motion.div>
+
+          {/* PASOS EXPLICATIVOS */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true, amount: 0.5 }}
-            className="space-y-6"
+            className="space-y-8"
           >
             {steps.map((step, index) => (
               <div key={index} className="flex items-start space-x-4">
@@ -68,8 +78,10 @@ const StepByStep = ({ onVideoClick }) => {
                   {index + 1}
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-brand-dark">{step.title}</h3>
-                  <p className="text-brand-gray">{step.description}</p>
+                  <h3 className="text-xl font-extrabold text-gold-dark drop-shadow-sm hover:drop-shadow-md transition-all duration-300">
+                    {step.title}
+                  </h3>
+                  <p className="text-brand-gray mt-1 leading-relaxed">{step.description}</p>
                 </div>
               </div>
             ))}

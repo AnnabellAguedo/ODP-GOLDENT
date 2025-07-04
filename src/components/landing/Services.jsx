@@ -13,7 +13,7 @@ const servicesData = [
 
 const Services = () => {
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-24 bg-gradient-to-b from-white to-gray-50">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -22,7 +22,7 @@ const Services = () => {
           viewport={{ once: true, amount: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-brand-dark mb-4">
+          <h2 className="text-4xl font-extrabold text-brand-dark mb-4 uppercase tracking-wide">
             Cuidado Dental Integral para Bebés, Niños y Adolescentes
           </h2>
           <p className="text-xl text-brand-gray max-w-3xl mx-auto">
@@ -38,13 +38,17 @@ const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true, amount: 0.5 }}
-              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
+              className="group bg-white rounded-3xl p-8 shadow-md hover:shadow-xl transition-transform duration-300 transform hover:-translate-y-2 border-2 border-gold/10 hover:border-gold"
             >
-              <div className="w-16 h-16 bg-gradient-to-br from-gold to-amber-400 rounded-2xl flex items-center justify-center mb-6 text-white shadow-lg">
+              <div className="w-16 h-16 bg-gradient-to-br from-gold to-yellow-400 rounded-xl flex items-center justify-center mb-6 text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
                 <service.icon className="w-8 h-8" />
               </div>
-              <h3 className="text-xl font-bold text-brand-dark mb-3">{service.title}</h3>
-              <p className="text-brand-gray leading-relaxed">{service.description}</p>
+              <h3 className="text-lg font-bold text-brand-dark mb-3 uppercase tracking-tight group-hover:text-gold">
+                {service.title}
+              </h3>
+              <p className="text-brand-gray leading-relaxed text-sm">
+                {service.description}
+              </p>
             </motion.div>
           ))}
         </div>

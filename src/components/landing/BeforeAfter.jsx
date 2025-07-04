@@ -21,7 +21,7 @@ const cases = [
     afterImgDesc: "El mismo molar infantil después de una restauración dental limpia"
   },
   {
-    title: "Ortodoncia Preventiva",
+    title: "Ortodoncia Preventiva y correcciones de mordida",
     description: "Corrección temprana de mordida para una buena masticación y futuro saludable.",
     beforeImg: "/imgs/ortodoncia-before.jpg",
     beforeImgAlt: "Sonrisa de niño con dientes desalineados antes de ortodoncia",
@@ -31,7 +31,7 @@ const cases = [
     afterImgDesc: "Sonrisa infantil radiante con dientes correctamente alineados"
   },
   {
-    title: "Selladores de Fisuras",
+    title: "Selladores de Fosas y Fisuras para prevenir caries",
     description: "Protección eficaz contra las caries en los molares permanentes.",
     beforeImg: "/imgs/sellantesantes.jpg",
     beforeImgAlt: "Molar de niño sin protección de sellador",

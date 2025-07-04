@@ -10,7 +10,6 @@ import Services from '@/components/landing/Services';
 import DisruptiveQuote from '@/components/landing/DisruptiveQuote';
 import StepByStep from '@/components/landing/StepByStep';
 import ExperienceSection from '@/components/landing/ExperienceSection';
-import VideoTestimonial from '@/components/landing/VideoTestimonial';
 import Testimonials from '@/components/landing/Testimonials';
 import BeforeAfter from '@/components/landing/BeforeAfter';
 import FAQ from '@/components/landing/FAQ';
@@ -61,12 +60,12 @@ function App() {
 
   const handleWhatsAppClick = () => {
     const message = encodeURIComponent("¡Hola! Me interesa agendar una cita de odontopediatría para mi hijo/a. ¿Podrían ayudarme con más información?");
-    window.open(`https://wa.me/51999999999?text=${message}`, '_blank');
+    window.open(`https://wa.me/51943857708?text=${message}`, '_blank');
   };
 
   const handleWhatsAppOfferClick = () => {
     const message = encodeURIComponent("¡Hola! Quiero agendar una cita y reclamar la oferta de Fluorización Gratuita. ¿Me ayudan por favor?");
-    window.open(`https://wa.me/51999999999?text=${message}`, '_blank');
+    window.open(`https://wa.me/51943857708?text=${message}`, '_blank');
   };
 
   const handleGenericClick = (feature) => {
@@ -93,7 +92,6 @@ function App() {
           <StepByStep onVideoClick={handleVideoClick} />
           <ExperienceSection onVideoClick={handleVideoClick} />
           <DisruptiveQuote text="Contamos con odontopediatras certificados, expertos en tratar niños con amor, paciencia y conocimiento." />
-          <VideoTestimonial onVideoClick={() => handleVideoClick("https://www.youtube.com/watch?v=gC3w22s-4uA")} />
           <Testimonials onTestimonialClick={() => handleGenericClick("Testimonios")} />
           <DisruptiveQuote text="Cuidar la sonrisa de tu hijo desde pequeño, es una decisión que cambia su futuro." />
           <BeforeAfter />

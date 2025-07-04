@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { MessageCircle, Phone } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
 
 const CTA = ({ onWhatsAppClick }) => {
   return (
@@ -17,29 +17,18 @@ const CTA = ({ onWhatsAppClick }) => {
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
             ¿Listo para cuidar la sonrisa de tu hijo?
           </h2>
-          <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-            Agenda una cita hoy y descubre por qué somos la clínica de confianza de las familias en Huaraz desde hace más de 18 años.
+          <p className="text-xl mb-10 max-w-3xl mx-auto opacity-90">
+            AGENDA UN CITA HOY y descubre por qué somos la clínica de confianza de más de 500 familias en Huaraz desde hace más de 18 años.
           </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button 
-              onClick={onWhatsAppClick}
-              size="lg"
-              className="bg-gradient-to-r from-gold to-amber-500 hover:from-gold-dark hover:to-amber-600 text-white px-8 py-4 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
-            >
-              <MessageCircle className="w-5 h-5 mr-2" />
-              Agendar por WhatsApp
-            </Button>
-            <Button 
-              onClick={() => window.location.href = 'tel:+51999999999'}
-              variant="outline"
-              size="lg"
-              className="border-2 border-gold text-gold hover:bg-gold hover:text-white px-8 py-4 rounded-full transition-all duration-300"
-            >
-              <Phone className="w-5 h-5 mr-2" />
-              Llamar Ahora
-            </Button>
-          </div>
+
+          <Button 
+            onClick={onWhatsAppClick}
+            size="lg"
+            className="bg-gradient-to-r from-gold to-amber-500 hover:from-gold-dark hover:to-amber-600 text-white px-10 py-5 text-lg rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+          >
+            <MessageCircle className="w-6 h-6 mr-3" />
+            Agendar por WhatsApp
+          </Button>
         </motion.div>
       </div>
     </section>
@@ -47,3 +36,4 @@ const CTA = ({ onWhatsAppClick }) => {
 };
 
 export default CTA;
+

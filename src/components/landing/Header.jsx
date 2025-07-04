@@ -13,15 +13,25 @@ const Header = ({ onWhatsAppClick, logoUrl }) => {
     >
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
-          <div className="flex flex-col items-start">
+          {/* Logo */}
+          <div className="flex-shrink-0">
             <img src={logoUrl} alt="Logo de Goldent" className="h-16 md:h-20 w-auto" />
-                      </div>
+          </div>
+
+          {/* Eslogan más grande */}
+          <div className="flex-1 text-center hidden md:block">
+            <p className="text-gold-dark font-bold text-2xl md:text-3xl tracking-wide">
+              Goldent te atiende y te cuida
+            </p>
+          </div>
+
+          {/* Botón WhatsApp */}
           <Button 
             onClick={onWhatsAppClick}
             className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hidden sm:inline-flex"
           >
             <MessageCircle className="w-4 h-4 mr-2" />
-            WhatsApp
+            AGENDAR por WhatsApp
           </Button>
         </div>
       </div>
@@ -30,3 +40,4 @@ const Header = ({ onWhatsAppClick, logoUrl }) => {
 };
 
 export default Header;
+

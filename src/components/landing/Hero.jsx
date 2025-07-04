@@ -1,9 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Award, Calendar, PlayCircle, Star } from 'lucide-react';
+import { Award, Calendar, Eye, Star } from 'lucide-react';
 
-const Hero = ({ onWhatsAppClick, onVideoClick }) => {
+const Hero = ({ onWhatsAppClick }) => {
+  const handleScrollToTestimonials = () => {
+    const section = document.getElementById('testimonios');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="relative py-20 overflow-hidden bg-gray-50">
       <div className="container mx-auto px-4 relative z-10">
@@ -27,11 +34,12 @@ const Hero = ({ onWhatsAppClick, onVideoClick }) => {
                 para tus hijos
               </h1>
               <p className="text-xl text-brand-gray leading-relaxed">
-  En <strong>Goldent</strong>, tu hijo es cuidado con amor. Porque su sonrisa merece <strong>paciencia</strong>, <strong>ternura</strong> y lo mejor de la <strong>tecnología</strong>.
-  <br />
-  Contamos con especialistas en <strong>odontopediatría</strong>, <strong>pediatría</strong> y <strong>anestesia</strong>, preparados para cuidar desde lo más simple hasta lo más complejo.<br /><strong>Estamos en Huaraz</strong> para que crezca feliz, sano… y sonriendo.
-
-</p>
+                En <strong>Goldent</strong>, tu hijo es cuidado con amor. Porque su sonrisa merece <strong>paciencia</strong>, <strong>ternura</strong> y lo mejor de la <strong>tecnología</strong>.
+                <br />
+                Contamos con especialistas en <strong>odontopediatría</strong>, <strong>pediatría</strong> y <strong>anestesia</strong>, preparados para cuidar desde lo más simple hasta lo más complejo.
+                <br />
+                <strong>Estamos en Huaraz</strong> para que crezca feliz, sano… y sonriendo.
+              </p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -44,13 +52,13 @@ const Hero = ({ onWhatsAppClick, onVideoClick }) => {
                 Agendar Cita Ahora
               </Button>
               <Button 
-                onClick={onVideoClick}
+                onClick={handleScrollToTestimonials}
                 variant="outline"
                 size="lg"
                 className="border-2 border-gold text-gold-dark hover:bg-gold-light/20 px-8 py-4 rounded-full transition-all duration-300"
               >
-                <PlayCircle className="w-5 h-5 mr-2" />
-                Ver Video
+                <Eye className="w-5 h-5 mr-2" />
+                Ver Casos Reales
               </Button>
             </div>
 
@@ -77,17 +85,15 @@ const Hero = ({ onWhatsAppClick, onVideoClick }) => {
             className="relative"
           >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-          <img
-  alt="Niño sonriendo feliz en la clínica dental Goldent"
-  className="w-full h-[500px] object-cover"
-  src="/foto1LDPODP.jpg"
-/>
-<p className="mt-4 text-center italic text-gray-700">
-  Aquí empezó todo... <strong>José Emilio</strong> fue mi primera inspiración para crear una Odontopediatría con alma.  
-  Hoy, cientos de familias confían en <strong>Goldent</strong> para cuidar a sus pequeños como si fueran nuestros propios hijos.
-</p>
-
-
+              <img
+                alt="Niño sonriendo feliz en la clínica dental Goldent"
+                className="w-full h-[500px] object-cover"
+                src="/foto1LDPODP.jpg"
+              />
+              <p className="mt-4 text-center italic text-gray-700">
+                Aquí empezó todo... <strong>José Emilio</strong> fue mi primera inspiración para crear una Odontopediatría con alma.  
+                Hoy, cientos de familias confían en <strong>Goldent</strong> para cuidar a sus pequeños como si fueran nuestros propios hijos.
+              </p>
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
             </div>
             <motion.div 
@@ -98,11 +104,9 @@ const Hero = ({ onWhatsAppClick, onVideoClick }) => {
             >
               <div className="flex items-center space-x-3">
                 <div className="flex -space-x-2">
-                  <Star className="w-6 h-6 text-yellow-400 fill-current" />
-                  <Star className="w-6 h-6 text-yellow-400 fill-current" />
-                  <Star className="w-6 h-6 text-yellow-400 fill-current" />
-                  <Star className="w-6 h-6 text-yellow-400 fill-current" />
-                  <Star className="w-6 h-6 text-yellow-400 fill-current" />
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-6 h-6 text-yellow-400 fill-current" />
+                  ))}
                 </div>
                 <div>
                   <div className="font-bold text-brand-dark">5.0</div>
