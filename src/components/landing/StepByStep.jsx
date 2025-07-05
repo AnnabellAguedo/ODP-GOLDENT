@@ -54,7 +54,7 @@ const StepByStep = () => {
           >
             <div className="w-full max-w-[380px] aspect-[9/16] rounded-2xl overflow-hidden shadow-xl">
               <video
-                src="/visita-goldent.mp4"
+                src="/visita-goldent.MP4"
                 className="w-full h-full object-contain"
                 controls
                 autoPlay
